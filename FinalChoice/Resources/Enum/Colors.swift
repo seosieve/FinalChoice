@@ -1,5 +1,5 @@
 //
-//  Color.swift
+//  Colors.swift
 //  FinalChoice
 //
 //  Created by 서충원 on 6/13/24.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-enum Color {
+enum Colors {
     static let main = UIColor("#EF8947")
     static let balck = UIColor("#000000")
-    static let dark = UIColor("#828282")
-    static let medium = UIColor("#4C4C4C")
+    static let dark = UIColor("#4C4C4C")
+    static let medium = UIColor("#828282")
     static let light = UIColor("#CDCDCD")
     static let white = UIColor("#FFFFFF")
 }

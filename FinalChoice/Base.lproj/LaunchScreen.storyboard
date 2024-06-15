@@ -18,20 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FINALCHOICE" translatesAutoresizingMaskIntoConstraints="NO" id="zZP-3u-997">
-                                <rect key="frame" x="30" y="171" width="333" height="50"/>
+                                <rect key="frame" x="40" y="181" width="313" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Rxu-Rk-4nk"/>
+                                    <constraint firstAttribute="height" constant="40" id="Rxu-Rk-4nk"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="GUS-s4-3as">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="GUS-s4-3as">
                                 <rect key="frame" x="0.0" y="251" width="393" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="A9p-Rr-oh7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서충원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGG-LF-Juo">
-                                <rect key="frame" x="166.66666666666666" y="611" width="60" height="28"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <rect key="frame" x="164" y="611" width="65" height="29.333333333333371"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="0.93725490196078431" green="0.53725490196078429" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,7 +40,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GUS-s4-3as" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0Hd-hO-Mlx"/>
-                            <constraint firstItem="zZP-3u-997" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="AIe-aV-iwg"/>
+                            <constraint firstItem="zZP-3u-997" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="AIe-aV-iwg"/>
                             <constraint firstItem="zZP-3u-997" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JuW-NR-ldB"/>
                             <constraint firstItem="GUS-s4-3as" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Lne-og-knQ"/>
                             <constraint firstItem="zGG-LF-Juo" firstAttribute="top" secondItem="GUS-s4-3as" secondAttribute="bottom" constant="10" id="TcS-Px-T4P"/>
