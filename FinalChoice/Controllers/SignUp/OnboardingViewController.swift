@@ -9,12 +9,12 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    var onboardingView = OnboardingView()
+    private var customView = OnboardingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = onboardingView
-        onboardingView.delegate = self
+        self.view = customView
+        customView.delegate = self
     }
 }
 
@@ -22,6 +22,7 @@ class OnboardingViewController: UIViewController {
 extension OnboardingViewController: OnboardingDelegate {
     func startButtonAction() {
         let vc = NicknameSettingViewController()
+        self.removeBackButtonTitle()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

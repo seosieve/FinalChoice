@@ -9,9 +9,7 @@ import UIKit
 
 struct NicknameSettingModel {
     
-    var randomNumber: Int {
-        return Int.random(in: 0...11)
-    }
+    var number = Int.random(in: 0...11)
     
     func makeStateString(_ text: String) -> NicknameStateNames {
         let numberPattern = "(?=.*[0-9])"

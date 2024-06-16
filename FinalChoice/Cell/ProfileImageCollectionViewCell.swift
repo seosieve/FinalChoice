@@ -10,7 +10,9 @@ import SnapKit
 
 class ProfileImageCollectionViewCell: UICollectionViewCell {
     
-    var state = CellStates.deselected
+    var state: CellStates = CellStates.deselected {
+        didSet { profileToggleAction(state: state) }
+    }
     
     private lazy var profileImageView = {
         let imageView = UIImageView()
@@ -50,37 +52,27 @@ class ProfileImageCollectionViewCell: UICollectionViewCell {
         profileImageView.image = Images.profile(index)
     }
     
-    func configureCell2() {
-        self.profileImageView.alpha = 1
-        self.profileImageView.layer.borderWidth = 3
-        self.profileImageView.layer.borderColor = Colors.main.cgColor
+    func profileToggleAction(state: CellStates) {
+        switch state {
+        case .deselected: deselectAction()
+        case .selected: selectAction()
+        }
+    }
+    
+    func deselectAction() {
+        self.profileImageView.alpha = 0.5
+        self.profileImageView.layer.borderWidth = 1
+        self.profileImageView.layer.borderColor = Colors.dark.cgColor
         self.isUserInteractionEnabled = true
     }
     
-    func profileSelectAction() {
-        state.toggleState()
-        
+    func selectAction() {
         profileImageView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         UIView.animate(withDuration: 1.5, delay: 0.1, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: .curveLinear) {
             self.profileImageView.transform = CGAffineTransform.identity
             self.profileImageView.alpha = 1
             self.profileImageView.layer.borderWidth = 3
             self.profileImageView.layer.borderColor = Colors.main.cgColor
-            self.isUserInteractionEnabled = false
-        }
-    }
-    
-    func changeProfileAppearance() {
-        switch state {
-        case .selected:
-            self.profileImageView.alpha = 1
-            self.profileImageView.layer.borderWidth = 3
-            self.profileImageView.layer.borderColor = Colors.main.cgColor
-            self.isUserInteractionEnabled = true
-        case .deselected:
-            self.profileImageView.alpha = 0.5
-            self.profileImageView.layer.borderWidth = 1
-            self.profileImageView.layer.borderColor = Colors.dark.cgColor
             self.isUserInteractionEnabled = false
         }
     }

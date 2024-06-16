@@ -13,7 +13,7 @@ class NicknameSettingView: BaseView {
     
     private let divider = BaseDivider()
     
-    lazy var profileView = BaseProfileView() {
+    private lazy var profileView = BaseProfileView() {
         self.delegate?.profileViewAction()
     }
     
@@ -76,6 +76,10 @@ class NicknameSettingView: BaseView {
             make.horizontalEdges.equalToSuperview().inset(24)
             make.height.equalTo(48)
         }
+    }
+    
+    func setRandomProfileImage(number: Int) {
+        profileView.profileImageView.image = Images.profile(number)
     }
     
     func changeNicknameAppearance(state: NicknameStateNames) {

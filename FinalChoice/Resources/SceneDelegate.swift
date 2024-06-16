@@ -17,9 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let vc = OnboardingViewController()
         let nav = UINavigationController(rootViewController: vc)
-        nav.setUpBarAppearance()
+        nav.navigationBar.setUpBarAppearance()
         
-        window?.rootViewController = nav
+        window?.rootViewController = TabBarViewController()
         window?.makeKeyAndVisible()
 //        sleep(2)
     }

@@ -34,7 +34,7 @@ class OnboardingView: BaseView {
     
     override func setViews() {
         super.setViews()
-        UIView.animate(withDuration: 1.0, delay: 1.0) {
+        UIView.animate(withDuration: 1.0, delay: 0.3) {
             self.appNameLabel.alpha = 1
         }
     }
