@@ -15,7 +15,6 @@ class SearchResultView: BaseView {
     
     let resultCountLabel = {
         let label = UILabel()
-        label.text = "22,311개의 검색 결과"
         label.textColor = Colors.main
         label.font = Fonts.sub
         return label
@@ -30,27 +29,27 @@ class SearchResultView: BaseView {
         return stackView
     }()
     
-    private lazy var accuracyButton = BaseSortButton(name: ButtonNames.accuracy, state: ButtonStates.enable) { name in
-        self.delegate?.sortButtonAction(.accuracy)
+    private lazy var simButton = BaseSortButton(name: ButtonNames.sim, state: ButtonCellStates.selected) { name in
+        self.delegate?.sortButtonAction(.sim)
     }
     
     private lazy var dateButton = BaseSortButton(name: ButtonNames.date) { name in
         self.delegate?.sortButtonAction(.date)
     }
     
-    private lazy var highPriceButton = BaseSortButton(name: ButtonNames.highPrice) { name in
-        self.delegate?.sortButtonAction(.highPrice)
+    private lazy var dscButton = BaseSortButton(name: ButtonNames.dsc) { name in
+        self.delegate?.sortButtonAction(.dsc)
     }
     
-    private lazy var rowPriceButton = BaseSortButton(name: ButtonNames.rowPrice) { name in
-        self.delegate?.sortButtonAction(.rowPrice)
+    private lazy var ascButton = BaseSortButton(name: ButtonNames.asc) { name in
+        self.delegate?.sortButtonAction(.asc)
     }
     
     private let searchResultCollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 14
         layout.minimumInteritemSpacing = 14
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 20, bottom: 0, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 20, bottom: 20, right: 20)
         let screenWidth = UIScreen.main.bounds.width
         let inset = layout.sectionInset.left + layout.sectionInset.right
         let spacing = layout.minimumInteritemSpacing
@@ -70,10 +69,10 @@ class SearchResultView: BaseView {
         self.addSubview(divider)
         self.addSubview(resultCountLabel)
         self.addSubview(sortButttonStackView)
-        sortButttonStackView.addArrangedSubview(accuracyButton)
+        sortButttonStackView.addArrangedSubview(simButton)
         sortButttonStackView.addArrangedSubview(dateButton)
-        sortButttonStackView.addArrangedSubview(highPriceButton)
-        sortButttonStackView.addArrangedSubview(rowPriceButton)
+        sortButttonStackView.addArrangedSubview(dscButton)
+        sortButttonStackView.addArrangedSubview(ascButton)
         self.addSubview(searchResultCollectionView)
     }
     
@@ -102,12 +101,14 @@ class SearchResultView: BaseView {
     func reloadSortButttons(name: ButtonNames) {
         for subview in sortButttonStackView.arrangedSubviews {
             guard let sortButton = subview as? BaseSortButton else { return }
-            sortButton.buttonState = sortButton.buttonName == name ? .enable : .disable
+            sortButton.buttonState = sortButton.buttonName == name ? .selected : .deselected
         }
     }
     
-    func reloadViewByResult() {
-        resultCountLabel.text = "dawd"
+    func makeinitalView(_ itemResult: ItemResult) {
+        if resultCountLabel.text == nil {
+            resultCountLabel.text = itemResult.itemsString
+        }
         searchResultCollectionView.reloadData()
     }
 }

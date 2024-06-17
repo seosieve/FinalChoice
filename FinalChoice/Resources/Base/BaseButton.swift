@@ -11,14 +11,14 @@ class BaseButton: UIButton {
     
     private var action: ((UIButton) -> ())?
     
-    init(name: ButtonNames, state: ButtonStates = .enable, action: @escaping (UIButton) -> ()) {
+    init(name: ButtonNames, state: ButtonCellStates = .selected, action: @escaping (UIButton) -> ()) {
         super.init(frame: .zero)
         self.action = action
-        self.backgroundColor = state == .enable ? Colors.main : Colors.light
+        self.backgroundColor = state == .selected ? Colors.main : Colors.light
         self.setTitle(name.rawValue, for: .normal)
         self.setTitleColor(Colors.white, for: .normal)
         self.titleLabel?.font = Fonts.main
-        self.isEnabled = state == .enable ? true : false
+        self.isEnabled = state == .selected ? true : false
         self.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
@@ -26,7 +26,7 @@ class BaseButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //Afer Height Decided
+    ///After Height Decided
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.cornerRadius = self.frame.height / 2

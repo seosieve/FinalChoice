@@ -31,7 +31,7 @@ class NicknameSettingView: BaseView {
         return label
     }()
     
-    lazy var completeButton = BaseButton(name: ButtonNames.complete, state: ButtonStates.disable) { sender in
+    lazy var completeButton = BaseButton(name: ButtonNames.complete, state: ButtonCellStates.deselected) { sender in
         self.delegate?.completeButtonAction()
     }
     
@@ -95,6 +95,10 @@ class NicknameSettingView: BaseView {
                 self.completeButton.isEnabled = false
             }
         }
+    }
+    
+    func hideCompleteButton() {
+        completeButton.isHidden = true
     }
 }
 

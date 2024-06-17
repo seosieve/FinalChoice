@@ -14,10 +14,6 @@ class SearchResultViewController: UIViewController {
     private var customModel = SearchResultModel()
     
     private var text: String!
-    private var sort = ButtonNames.accuracy
-    private var itemResult = ItemResult(total: 0, items: [Item]()) {
-        didSet { customView.reloadViewByResult() }
-    }
     
     init(text: String) {
         super.init(nibName: nil, bundle: nil)
@@ -35,10 +31,22 @@ class SearchResultViewController: UIViewController {
         navigationItem.title = text
         customView.searchResultCollectionView.delegate = self
         customView.searchResultCollectionView.dataSource = self
+        customView.searchResultCollectionView.prefetchDataSource = self
         customView.delegate = self
+        customModel.itemResultUpdated = { itemResult in
+            self.customView.makeinitalView(itemResult)
+        }
+        loadItemResult(sort: customModel.sort, start: 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        customView.searchResultCollectionView.reloadData()
+    }
+    
+    private func loadItemResult(sort: ButtonNames, start: Int) {
         customView.makeToastActivity(.center)
-        customModel.shoppingRequest(text: "김밥") { itemResult in
-            self.itemResult = itemResult
+        customModel.shoppingRequest(text: text, sort: sort, start: start) { itemResult in
             self.customView.hideToastActivity()
         }
     }
@@ -47,14 +55,35 @@ class SearchResultViewController: UIViewController {
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemResult.items.count
+        return customModel.itemResult.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = itemResult.items[indexPath.item]
+        let item = customModel.itemResult.items[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
         cell.configureCell(item: item)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = customModel.itemResult.items[indexPath.item]
+        let link = item.link
+        let productId = item.productId
+        let titleString = item.titleString
+        let vc = SearchDetailViewController(link: link, productId: productId, titleString: titleString)
+        self.removeBackButtonTitle()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+//MARK: - UICollectionViewDataSourcePrefetching
+extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            customModel.paginationAction(indexPath: indexPath) { sort, start in
+                self.loadItemResult(sort: sort, start: start)
+            }
+        }
     }
 }
 
@@ -62,6 +91,8 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 extension SearchResultViewController: SearchResultDelegate {
     func sortButtonAction(_ name: ButtonNames) {
         customView.reloadSortButttons(name: name)
-        sort = name
+        customModel.sort = name
+        loadItemResult(sort: customModel.sort, start: 1)
+        customView.searchResultCollectionView.scrollToItem(at: [0,0], at: .top, animated: true)
     }
 }

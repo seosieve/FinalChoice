@@ -11,6 +11,9 @@ import Kingfisher
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
     
+    var productId: String!
+    var state: ButtonCellStates!
+    
     private lazy var resultImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
@@ -18,6 +21,16 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
         return imageView
+    }()
+    
+    private lazy var likeButton = {
+        let button = UIButton()
+        button.backgroundColor = Colors.balck.withAlphaComponent(0.3)
+        button.setImage(Images.like(.selected), for: .normal)
+        button.tintColor = Colors.white
+        button.layer.cornerRadius = 4
+        button.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+        return button
     }()
     
     private var sellerLabel = {
@@ -55,12 +68,15 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    @objc func likeButtonClicked(_ sender: UIButton) {
+        state.toggleState()
+        state == .selected ? selectAnimation() : deselectAction()
+        state == .selected ? UserDefaultManager.addLike(productId) : UserDefaultManager.removeLike(productId)
     }
     
     private func configureSubviews() {
         self.addSubview(resultImageView)
+        self.addSubview(likeButton)
         self.addSubview(sellerLabel)
         self.addSubview(productNameLabel)
         self.addSubview(priceLabel)
@@ -70,6 +86,11 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         resultImageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
             make.height.equalTo(resultImageView.snp.width).multipliedBy(1.2)
+        }
+        
+        likeButton.snp.makeConstraints { make in
+            make.trailing.bottom.equalTo(resultImageView).inset(10)
+            make.size.equalTo(30)
         }
         
         sellerLabel.snp.makeConstraints { make in
@@ -89,11 +110,36 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(item: Item) {
+        productId = item.productId
+        let liked = UserDefaultManager.isLiked(productId)
+        state = liked ? .selected : .deselected
+        liked ? selectAction() : deselectAction()
+        
         let image = URL(string: item.image)
         resultImageView.kf.setImage(with: image)
         
         sellerLabel.text = item.mallName
         productNameLabel.text = item.titleString
-        priceLabel.text = item.lprice
+        priceLabel.text = item.priceString
+    }
+    
+    func deselectAction() {
+        likeButton.backgroundColor = Colors.balck.withAlphaComponent(0.3)
+        likeButton.setImage(Images.like(.selected), for: .normal)
+        likeButton.tintColor = Colors.white
+    }
+    
+    func selectAction() {
+        self.likeButton.backgroundColor = Colors.white
+        self.likeButton.setImage(Images.like(.selected), for: .normal)
+        self.likeButton.tintColor = Colors.main
+    }
+    
+    func selectAnimation() {
+        likeButton.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        UIView.animate(withDuration: 1.2, delay: 0.1, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: .curveLinear) {
+            self.likeButton.transform = CGAffineTransform.identity
+            self.selectAction()
+        }
     }
 }

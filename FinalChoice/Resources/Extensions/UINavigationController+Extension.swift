@@ -21,11 +21,3 @@ extension UINavigationBar {
         self.scrollEdgeAppearance = appearance
     }
 }
-
-//MARK: - Remove Back Button Title
-extension UIViewController {
-    func removeBackButtonTitle() {
-        let backBarButtonItem = UIBarButtonItem(title: "")
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-    }
-}

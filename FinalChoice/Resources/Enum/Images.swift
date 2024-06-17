@@ -11,8 +11,13 @@ enum Images {
     static let launch = UIImage(named: "launch")
     static let camera = UIImage(systemName: "camera.fill")!.withRenderingMode(.alwaysTemplate)
     static let empty = UIImage(named: "empty")
+    static let chevron = UIImage(systemName: "chevron.right")
     
     static func profile(_ number: Int) -> UIImage {
         return UIImage(named: "profile_\(number)")!
+    }
+    
+    static func like(_ state: ButtonCellStates) -> UIImage {
+        return state == .selected ? UIImage(named: "like_selected")! : UIImage(named: "like_unselected")!.withRenderingMode(.alwaysOriginal)
     }
 }

@@ -10,7 +10,7 @@ import SnapKit
 
 class ProfileImageCollectionViewCell: UICollectionViewCell {
     
-    var state: CellStates = CellStates.deselected {
+    var state: ButtonCellStates = ButtonCellStates.deselected {
         didSet { profileToggleAction(state: state) }
     }
     
@@ -52,7 +52,7 @@ class ProfileImageCollectionViewCell: UICollectionViewCell {
         profileImageView.image = Images.profile(index)
     }
     
-    func profileToggleAction(state: CellStates) {
+    func profileToggleAction(state: ButtonCellStates) {
         switch state {
         case .deselected: deselectAction()
         case .selected: selectAction()
@@ -60,9 +60,9 @@ class ProfileImageCollectionViewCell: UICollectionViewCell {
     }
     
     func deselectAction() {
-        self.profileImageView.alpha = 0.5
-        self.profileImageView.layer.borderWidth = 1
-        self.profileImageView.layer.borderColor = Colors.dark.cgColor
+        profileImageView.alpha = 0.5
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = Colors.dark.cgColor
         self.isUserInteractionEnabled = true
     }
     

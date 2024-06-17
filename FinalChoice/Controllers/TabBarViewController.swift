@@ -23,13 +23,13 @@ class TabBarViewController: UITabBarController {
     }
     
     func configureTabBar() {
-        let searchVC = UINavigationController(rootViewController: SearchResultViewController(text: "Default"))
+        let searchVC = UINavigationController(rootViewController: SearchResultViewController(text: "김밥"))
         searchVC.navigationBar.setUpBarAppearance()
         
         let settingVC = UINavigationController(rootViewController: SettingViewController())
         settingVC.navigationBar.setUpBarAppearance()
         
-        self.setViewControllers([searchVC, settingVC], animated: true)
+        self.setViewControllers([settingVC, searchVC], animated: true)
     }
     
     func configureTabBarItems() {

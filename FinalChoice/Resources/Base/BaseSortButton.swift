@@ -13,11 +13,11 @@ class BaseSortButton: UIButton {
     private var action: ((ButtonNames) -> ())?
     var buttonName: ButtonNames!
     
-    var buttonState: ButtonStates! {
+    var buttonState: ButtonCellStates! {
         didSet { buttonStateToggleAction(state: buttonState) }
     }
     
-    init(name: ButtonNames, state: ButtonStates = .disable, action: @escaping (ButtonNames) -> ()) {
+    init(name: ButtonNames, state: ButtonCellStates = .deselected, action: @escaping (ButtonNames) -> ()) {
         super.init(frame: .zero)
         self.action = action
         self.buttonName = name
@@ -46,10 +46,10 @@ class BaseSortButton: UIButton {
         action?(buttonName)
     }
     
-    private func buttonStateToggleAction(state: ButtonStates) {
-        self.backgroundColor = state == .enable ? Colors.dark : Colors.white
-        let titleColor = state == .enable ? Colors.white : Colors.medium
+    private func buttonStateToggleAction(state: ButtonCellStates) {
+        self.backgroundColor = state == .selected ? Colors.dark : Colors.white
+        let titleColor = state == .selected ? Colors.white : Colors.medium
         self.setTitleColor(titleColor, for: .normal)
-        self.layer.borderWidth = state == .enable ? 0 : 1.3
+        self.layer.borderWidth = state == .selected ? 0 : 1.3
     }
 }
