@@ -29,10 +29,8 @@ class SettingTableViewCell: UITableViewCell {
     
     private let productCountLabel = {
         let label = UILabel()
-        label.text = "18개의 상품"
         label.font = Fonts.sub
         label.textColor = Colors.dark
-        label.withMultipleColor(Colors.medium, range: "의 상품")
         label.isHidden = true
         return label
     }()
@@ -75,11 +73,13 @@ class SettingTableViewCell: UITableViewCell {
         }
     }
     
-    func configureCell(index: Int) {
+    func configureCell(index: Int, likeCount: Int) {
         if index == 0 {
             productCountLabel.isHidden = false
             productImageView.isHidden = false
         }
         titleLabel.text = SettingListNames.titleArr[index]
+        productCountLabel.text = String(likeCount) + "개의 상품"
+        productCountLabel.withMultipleColor(Colors.medium, range: "의 상품")
     }
 }

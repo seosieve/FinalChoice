@@ -34,7 +34,7 @@ class SearchResultViewController: UIViewController {
         customView.searchResultCollectionView.prefetchDataSource = self
         customView.delegate = self
         customModel.itemResultUpdated = { itemResult in
-            self.customView.makeinitalView(itemResult)
+            self.customView.makeInitalView(itemResult)
         }
         loadItemResult(sort: customModel.sort, start: 1)
     }
@@ -62,6 +62,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         let item = customModel.itemResult.items[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
         cell.configureCell(item: item)
+        cell.highlightText(text: text)
         return cell
     }
     

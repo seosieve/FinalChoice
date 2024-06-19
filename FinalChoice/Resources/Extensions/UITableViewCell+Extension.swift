@@ -8,12 +8,12 @@
 import UIKit
 
 extension UITableViewCell: ReusableIdentifier {
-    //Automatically Create Identifier
+    // Automatically Create Identifier
     static var identifier: String {
         return String(describing: self)
     }
     
-    //Animation when TableView Selected
+    // Animation when TableView Selected
     func selectionAnimation() {
         if self.isSelected {
             UIView.transition(with: self, duration: 0.5, options: .transitionCrossDissolve) {

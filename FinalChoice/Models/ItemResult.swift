@@ -16,7 +16,7 @@ struct ItemResult: Decodable {
 
 extension ItemResult {
     var itemsString: String {
-        return total.formatted() + "개의 검색 결과"
+        return total == 0 ? "결과가 없어요.." : total.formatted() + "개의 검색 결과"
     }
     
     static var dummy: ItemResult {

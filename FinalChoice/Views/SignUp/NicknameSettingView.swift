@@ -35,6 +35,12 @@ class NicknameSettingView: BaseView {
         self.delegate?.completeButtonAction()
     }
     
+    override func setViews() {
+        super.setViews()
+        hideKeyboardWhenTappedAround()
+        nicknameTextField.delegate = self
+    }
+    
     override func configureSubviews() {
         self.addSubview(divider)
         self.addSubview(profileView)
@@ -78,8 +84,12 @@ class NicknameSettingView: BaseView {
         }
     }
     
-    func setRandomProfileImage(number: Int) {
+    func setProfileImage(number: Int) {
         profileView.profileImageView.image = Images.profile(number)
+    }
+    
+    func setNicknameLabel(nickname: String) {
+        nicknameTextField.text = nickname
     }
     
     func changeNicknameAppearance(state: NicknameStateNames) {
@@ -97,8 +107,17 @@ class NicknameSettingView: BaseView {
         }
     }
     
+    ///Call When NicknameSettingView Reuse
     func hideCompleteButton() {
         completeButton.isHidden = true
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension NicknameSettingView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
+        return true
     }
 }
 

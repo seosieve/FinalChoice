@@ -10,6 +10,7 @@ import Foundation
 enum Names {
     static let appName = "FINAL CHOICE"
     static let empty = "최근 검색어가 없어요"
+    static let noResult = "검색 결과가 존재하지 않아요"
 }
 
 enum ButtonNames: String {
@@ -42,7 +43,7 @@ enum PlaceholderNames: String {
 }
 
 enum NicknameStateNames: String {
-    case emptyNickname = ""
+    case emptyNickname = "닉네임을 입력해주세요."
     case successNickname = "사용할 수 있는 닉네임이에요."
     case errorWithLength = "2글자 이상 10글자 미만으로 설정해주세요."
     case errorWithSymbol = "닉네임에 @, #, $, %는 포함할 수 없어요."
@@ -52,5 +53,3 @@ enum NicknameStateNames: String {
 enum SettingListNames {
     static let titleArr = ["나의 장바구니 목록", "자주 묻는 질문", "1:1 문의", "알림 설정", "탈퇴하기"]
 }
-
-

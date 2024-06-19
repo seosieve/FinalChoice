@@ -58,7 +58,7 @@ class ImageSettingView: BaseView {
         }
     }
     
-    func setRandomProfileImage(number: Int) {
+    func setSelectedProfileImage(number: Int) {
         profileView.profileImageView.image = Images.profile(number)
     }
 }

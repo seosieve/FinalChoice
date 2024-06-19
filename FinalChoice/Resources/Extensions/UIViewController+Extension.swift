@@ -14,6 +14,7 @@ extension UIViewController {
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
+    // Withdraw Confirm Alert
     func withdrawAlert(_ alertHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: "정말로 탈퇴하시겠어요?", message: "탈퇴를 하면 데이터가 모두 초기화됩니다. 탈퇴하시겠습니까?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
@@ -25,5 +26,12 @@ extension UIViewController {
         action.setValue(Colors.main, forKey: "titleTextColor")
         alert.view.tintColor = Colors.dark
         present(alert, animated: true, completion: nil)
+    }
+    
+    // NavigationController Push VC
+    func pushViewController(_ viewController: UIViewController) {
+        let vc = viewController
+        self.removeBackButtonTitle()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

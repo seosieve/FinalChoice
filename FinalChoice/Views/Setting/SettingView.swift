@@ -11,6 +11,8 @@ class SettingView: BaseView {
     
     weak var delegate: SettingDelegate?
     
+    var likeCount = 0
+    
     private let divider = BaseDivider()
     
     private lazy var profileContainerView = {
@@ -22,7 +24,6 @@ class SettingView: BaseView {
     
     private let profileImageView = {
         let imageView = UIImageView()
-        imageView.image = Images.profile(1)
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = Colors.main.cgColor
         imageView.layer.masksToBounds = true
@@ -32,7 +33,6 @@ class SettingView: BaseView {
     
     private let nicknameLabel = {
         let label = UILabel()
-        label.text = "옹골찬 고래밥"
         label.textColor = Colors.dark
         label.font = Fonts.large
         return label
@@ -40,7 +40,6 @@ class SettingView: BaseView {
     
     private let registerDateLabel = {
         let label = UILabel()
-        label.text = "2024.05.15 가입"
         label.textColor = Colors.medium
         label.font = Fonts.context
         return label
@@ -66,6 +65,7 @@ class SettingView: BaseView {
         tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = 60
+        tableView.isScrollEnabled = false
         return tableView
     }()
  
@@ -128,6 +128,14 @@ class SettingView: BaseView {
         profileContainerView.viewSelectionAnimation()
         delegate?.profileSettingAction()
     }
+    
+    func reloadUserProfile(imageNumber: Int, nickname: String, register: String, likeCount: Int) {
+        profileImageView.image = Images.profile(imageNumber)
+        nicknameLabel.text = nickname
+        registerDateLabel.text = register
+        self.likeCount = likeCount
+        self.settingTableView.reloadRows(at: [[0,0]], with: .automatic)
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -138,7 +146,7 @@ extension SettingView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
-        cell.configureCell(index: indexPath.row)
+        cell.configureCell(index: indexPath.row, likeCount: likeCount)
         return cell
     }
 }

@@ -64,6 +64,24 @@ class SearchResultView: BaseView {
         collectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
         return collectionView
     }()
+    
+    private let emptyImageView = {
+        let imageView = UIImageView()
+        imageView.image = Images.empty
+        imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = true
+        return imageView
+    }()
+    
+    private let emptyLabel = {
+        let label = UILabel()
+        label.text = Names.noResult
+        label.font = Fonts.main
+        label.textColor = Colors.dark
+        label.textAlignment = .center
+        label.isHidden = true
+        return label
+    }()
  
     override func configureSubviews() {
         self.addSubview(divider)
@@ -74,6 +92,8 @@ class SearchResultView: BaseView {
         sortButttonStackView.addArrangedSubview(dscButton)
         sortButttonStackView.addArrangedSubview(ascButton)
         self.addSubview(searchResultCollectionView)
+        self.addSubview(emptyImageView)
+        self.addSubview(emptyLabel)
     }
     
     override func configureConstraints() {
@@ -96,6 +116,16 @@ class SearchResultView: BaseView {
             make.top.equalTo(sortButttonStackView.snp.bottom).offset(8)
             make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
         }
+        
+        emptyImageView.snp.makeConstraints { make in
+            make.horizontalEdges.centerY.equalToSuperview()
+            make.height.equalTo(240)
+        }
+        
+        emptyLabel.snp.makeConstraints { make in
+            make.top.equalTo(emptyImageView.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+        }
     }
     
     func reloadSortButttons(name: ButtonNames) {
@@ -105,10 +135,22 @@ class SearchResultView: BaseView {
         }
     }
     
-    func makeinitalView(_ itemResult: ItemResult) {
+    func makeInitalView(_ itemResult: ItemResult) {
+        // Count Label Setting
         if resultCountLabel.text == nil {
             resultCountLabel.text = itemResult.itemsString
         }
+        // If Empty Item Searchd
+        if itemResult.items.count == 0 {
+            sortButttonStackView.isHidden = true
+            emptyImageView.isHidden = false
+            emptyLabel.isHidden = false
+        } else {
+            sortButttonStackView.isHidden = false
+            emptyImageView.isHidden = true
+            emptyLabel.isHidden = true
+        }
+        
         searchResultCollectionView.reloadData()
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 extension UITextField {
+    // Custom TextField PlaceHolder Color
     func setUpPlaceholderAppearance() {
         guard let string = self.placeholder else { return }
         attributedPlaceholder = NSAttributedString(string: string, attributes: [.foregroundColor: Colors.medium])

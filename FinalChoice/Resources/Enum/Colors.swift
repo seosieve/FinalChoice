@@ -9,7 +9,7 @@ import UIKit
 
 enum Colors {
     static let main = UIColor("#EF8947")
-    static let balck = UIColor("#000000")
+    static let black = UIColor("#000000")
     static let dark = UIColor("#4C4C4C")
     static let medium = UIColor("#828282")
     static let light = UIColor("#CDCDCD")

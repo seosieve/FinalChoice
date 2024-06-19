@@ -9,6 +9,7 @@ import UIKit
 
 //MARK: - Custom NavigationBar Style
 extension UINavigationBar {
+    // Set Up Custom NavigationBar Style
     func setUpBarAppearance(isSearch: Bool = false) {
         let font = isSearch ? Fonts.main : Fonts.nav
         

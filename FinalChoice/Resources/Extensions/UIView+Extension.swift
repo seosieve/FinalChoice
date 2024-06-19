@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIView {
+    // Animation Of Custom Tappable View
     func viewSelectionAnimation() {
         UIView.animate(withDuration: 0.2, animations: {
             self.backgroundColor = Colors.light
@@ -16,5 +17,16 @@ extension UIView {
                 self.backgroundColor = Colors.white
             }
         })
+    }
+    
+    // Keyboard Down When Tapped
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.endEditing(true)
     }
 }

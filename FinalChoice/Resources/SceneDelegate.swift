@@ -15,13 +15,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let vc = OnboardingViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.navigationBar.setUpBarAppearance()
-        
-        window?.rootViewController = TabBarViewController()
+        var initialVC: UIViewController?
+
+        ///Distinct Initial View With UserDefault Nickname
+        if let _ = UserDefaultManager.nickname {
+            initialVC = TabBarViewController()
+        } else {
+            let vc = OnboardingViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.navigationBar.setUpBarAppearance()
+            initialVC = nav
+        }
+
+        window?.rootViewController = initialVC
         window?.makeKeyAndVisible()
-//        sleep(2)
+        sleep(2)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

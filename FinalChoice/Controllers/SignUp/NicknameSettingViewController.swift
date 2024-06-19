@@ -16,7 +16,7 @@ class NicknameSettingViewController: UIViewController {
         super.viewDidLoad()
         self.view = customView
         navigationItem.title = NavigationTitleNames.profile
-        customView.setRandomProfileImage(number: customModel.number)
+        customView.setProfileImage(number: customModel.number)
         customView.delegate = self
     }
 }
@@ -25,6 +25,8 @@ class NicknameSettingViewController: UIViewController {
 extension NicknameSettingViewController: NicknameSettingDelegate {
     
     func profileViewAction() {
+        ///Keyboard Down When Push
+        self.view.endEditing(true)
         let vc = ImageSettingViewController(number: customModel.number)
         vc.delegate = self
         self.removeBackButtonTitle()
@@ -34,10 +36,18 @@ extension NicknameSettingViewController: NicknameSettingDelegate {
     func nicknameTextFieldAction(_ text: String) {
         let state = customModel.makeStateString(text)
         customView.changeNicknameAppearance(state: state)
+        customModel.nickname = text
     }
     
     func completeButtonAction() {
-        print(#function)
+        ///Make User & Reset Initial View
+        customModel.makeUserProfile()
+        
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        let vc = TabBarViewController()
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 }
 
@@ -45,6 +55,6 @@ extension NicknameSettingViewController: NicknameSettingDelegate {
 extension NicknameSettingViewController: SelectedProfileDelegate {
     func sendImageNumber(number: Int) {
         customModel.number = number
-        customView.setRandomProfileImage(number: customModel.number)
+        customView.setProfileImage(number: customModel.number)
     }
 }

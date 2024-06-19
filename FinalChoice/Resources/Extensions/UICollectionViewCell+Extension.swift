@@ -8,6 +8,7 @@
 import UIKit
 
 extension UICollectionViewCell: ReusableIdentifier {
+    // Automatically Create Identifier
     static var identifier: String {
         return String(describing: self)
     }

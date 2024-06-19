@@ -1,14 +1,15 @@
 //
-//  ImageSettingViewController.swift
+//  ImageChangeViewController.swift
 //  FinalChoice
 //
-//  Created by 서충원 on 6/15/24.
+//  Created by 서충원 on 6/18/24.
 //
 
 import UIKit
 
-class ImageSettingViewController: UIViewController {
-    
+class ImageChangeViewController: UIViewController {
+
+    //Reuse CustomView, CustomModel
     private var customView = ImageSettingView()
     
     private var number: Int!
@@ -26,7 +27,7 @@ class ImageSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
-        navigationItem.title = NavigationTitleNames.profile
+        navigationItem.title = NavigationTitleNames.setting
         customView.setSelectedProfileImage(number: number)
         customView.profileCollectionView.delegate = self
         customView.profileCollectionView.dataSource = self
@@ -39,7 +40,7 @@ class ImageSettingViewController: UIViewController {
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension ImageSettingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ImageChangeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 12
     }
@@ -64,8 +65,4 @@ extension ImageSettingViewController: UICollectionViewDelegate, UICollectionView
         number = indexPath.item
         customView.setSelectedProfileImage(number: number)
     }
-}
-
-protocol SelectedProfileDelegate: AnyObject {
-    func sendImageNumber(number: Int)
 }

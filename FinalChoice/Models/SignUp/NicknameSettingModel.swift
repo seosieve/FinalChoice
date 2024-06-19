@@ -10,6 +10,8 @@ import UIKit
 struct NicknameSettingModel {
     
     var number = Int.random(in: 0...11)
+    var nickname = ""
+    var state = NicknameStateNames.emptyNickname
     
     func makeStateString(_ text: String) -> NicknameStateNames {
         let numberPattern = "(?=.*[0-9])"
@@ -24,5 +26,24 @@ struct NicknameSettingModel {
         guard (2..<10) ~= text.count else { return .errorWithLength }
         //Success
         return .successNickname
+    }
+    
+    func makeUserProfile() {
+        UserDefaultManager.profileImage = number
+        UserDefaultManager.nickname = nickname
+        UserDefaultManager.register = makeStringDate()
+    }
+    
+    private func makeStringDate() -> String {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter.string(from: currentDate)
+    }
+    
+    ///Call When NicknameSettingModel Reuse
+    func changeProfile() {
+        UserDefaultManager.profileImage = number
+        UserDefaultManager.nickname = nickname
     }
 }

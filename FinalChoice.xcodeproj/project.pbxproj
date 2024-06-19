@@ -29,6 +29,11 @@
 		4E3AF1FE2C206DE5009F8472 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF1FD2C206DE5009F8472 /* UIView+Extension.swift */; };
 		4E3AF2002C206F64009F8472 /* NicknameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF1FF2C206F64009F8472 /* NicknameChangeViewController.swift */; };
 		4E3AF2052C207115009F8472 /* NicknameChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF2042C207115009F8472 /* NicknameChangeModel.swift */; };
+		4E3AF20E2C213FE1009F8472 /* ImageChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF20D2C213FE1009F8472 /* ImageChangeViewController.swift */; };
+		4E3AF2102C214453009F8472 /* SearchedWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF20F2C214453009F8472 /* SearchedWordTableViewCell.swift */; };
+		4E3AF2122C216E49009F8472 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF2112C216E49009F8472 /* UITableView+Extension.swift */; };
+		4E3AF2142C217D81009F8472 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF2132C217D81009F8472 /* SearchModel.swift */; };
+		4E3AF2162C2184BA009F8472 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF2152C2184BA009F8472 /* SettingModel.swift */; };
 		4E76236F2C1BCDE8002DDB17 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76236E2C1BCDE8002DDB17 /* Fonts.swift */; };
 		4E7623722C1BD12C002DDB17 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7623712C1BD12C002DDB17 /* BaseView.swift */; };
 		4E7623742C1BD975002DDB17 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7623732C1BD975002DDB17 /* Names.swift */; };
@@ -86,6 +91,11 @@
 		4E3AF1FD2C206DE5009F8472 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4E3AF1FF2C206F64009F8472 /* NicknameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeViewController.swift; sourceTree = "<group>"; };
 		4E3AF2042C207115009F8472 /* NicknameChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeModel.swift; sourceTree = "<group>"; };
+		4E3AF20D2C213FE1009F8472 /* ImageChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageChangeViewController.swift; sourceTree = "<group>"; };
+		4E3AF20F2C214453009F8472 /* SearchedWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedWordTableViewCell.swift; sourceTree = "<group>"; };
+		4E3AF2112C216E49009F8472 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		4E3AF2132C217D81009F8472 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		4E3AF2152C2184BA009F8472 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		4E76236E2C1BCDE8002DDB17 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		4E7623712C1BD12C002DDB17 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		4E7623732C1BD975002DDB17 /* Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
@@ -186,6 +196,7 @@
 			children = (
 				4E275EBA2C1EA4BD00167C14 /* SettingViewController.swift */,
 				4E3AF1FF2C206F64009F8472 /* NicknameChangeViewController.swift */,
+				4E3AF20D2C213FE1009F8472 /* ImageChangeViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 		4E3AF1F22C203AF9009F8472 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4E3AF2132C217D81009F8472 /* SearchModel.swift */,
 				4E275ECE2C1EC4A000167C14 /* SearchResultModel.swift */,
 				4E3AF1F32C203B45009F8472 /* SearchDetailModel.swift */,
 			);
@@ -210,6 +222,7 @@
 		4E3AF2032C207084009F8472 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				4E3AF2152C2184BA009F8472 /* SettingModel.swift */,
 				4E3AF2042C207115009F8472 /* NicknameChangeModel.swift */,
 			);
 			path = Setting;
@@ -251,6 +264,7 @@
 			children = (
 				4E76239B2C1DA564002DDB17 /* ProfileImageCollectionViewCell.swift */,
 				4E275ECC2C1EBE3A00167C14 /* SearchResultCollectionViewCell.swift */,
+				4E3AF20F2C214453009F8472 /* SearchedWordTableViewCell.swift */,
 				4E3AF1F52C20587A009F8472 /* SettingTableViewCell.swift */,
 			);
 			path = Cell;
@@ -333,6 +347,7 @@
 				4E7623832C1D5B26002DDB17 /* UINavigationController+Extension.swift */,
 				4E7623892C1D6BA5002DDB17 /* UITextField+Extension.swift */,
 				4E7623982C1DA50A002DDB17 /* UICollectionViewCell+Extension.swift */,
+				4E3AF2112C216E49009F8472 /* UITableView+Extension.swift */,
 				4E3AF1F72C2058E6009F8472 /* UITableViewCell+Extension.swift */,
 				4E3AF1F92C206684009F8472 /* UILabel+Extension.swift */,
 				4E3AF1FD2C206DE5009F8472 /* UIView+Extension.swift */,
@@ -446,6 +461,7 @@
 				4EAEEAA32C1AF52900A61BE4 /* AppDelegate.swift in Sources */,
 				4E3AF1ED2C2018B1009F8472 /* SearchDetailView.swift in Sources */,
 				4E7623722C1BD12C002DDB17 /* BaseView.swift in Sources */,
+				4E3AF2142C217D81009F8472 /* SearchModel.swift in Sources */,
 				4E3AF1E92C200AAB009F8472 /* ItemResult.swift in Sources */,
 				4E7623932C1DA0BB002DDB17 /* ImageSettingViewController.swift in Sources */,
 				4E275EBF2C1EAAF500167C14 /* SearchView.swift in Sources */,
@@ -467,6 +483,7 @@
 				4E7623762C1BDA1B002DDB17 /* Images.swift in Sources */,
 				4E275ECB2C1EB69F00167C14 /* BaseSortButton.swift in Sources */,
 				4E3AF1FE2C206DE5009F8472 /* UIView+Extension.swift in Sources */,
+				4E3AF2102C214453009F8472 /* SearchedWordTableViewCell.swift in Sources */,
 				4E7623912C1D81C3002DDB17 /* NicknameSettingModel.swift in Sources */,
 				4E275EB72C1EA47800167C14 /* TabBarViewController.swift in Sources */,
 				4E3AF2002C206F64009F8472 /* NicknameChangeViewController.swift in Sources */,
@@ -477,6 +494,7 @@
 				4EAEEAC32C1AFD4A00A61BE4 /* Colors.swift in Sources */,
 				4E76238F2C1D77E6002DDB17 /* BaseTextField.swift in Sources */,
 				4E275EC72C1EB23B00167C14 /* SearchResultViewController.swift in Sources */,
+				4E3AF20E2C213FE1009F8472 /* ImageChangeViewController.swift in Sources */,
 				4E76239C2C1DA564002DDB17 /* ProfileImageCollectionViewCell.swift in Sources */,
 				4E76237D2C1BF1F0002DDB17 /* OnboardingView.swift in Sources */,
 				4E275EC92C1EB24800167C14 /* SearchResultView.swift in Sources */,
@@ -485,7 +503,9 @@
 				4E275EBB2C1EA4BD00167C14 /* SettingViewController.swift in Sources */,
 				4E3AF1F82C2058E6009F8472 /* UITableViewCell+Extension.swift in Sources */,
 				4E7623742C1BD975002DDB17 /* Names.swift in Sources */,
+				4E3AF2122C216E49009F8472 /* UITableView+Extension.swift in Sources */,
 				4E3AF1FA2C206684009F8472 /* UILabel+Extension.swift in Sources */,
+				4E3AF2162C2184BA009F8472 /* SettingModel.swift in Sources */,
 				4EAEEAA52C1AF52900A61BE4 /* SceneDelegate.swift in Sources */,
 				4E3AF1EB2C20183F009F8472 /* SearchDetailViewController.swift in Sources */,
 				4E76238A2C1D6BA5002DDB17 /* UITextField+Extension.swift in Sources */,

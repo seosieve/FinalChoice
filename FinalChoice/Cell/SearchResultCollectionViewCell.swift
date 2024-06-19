@@ -25,7 +25,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     private lazy var likeButton = {
         let button = UIButton()
-        button.backgroundColor = Colors.balck.withAlphaComponent(0.3)
+        button.backgroundColor = Colors.black.withAlphaComponent(0.3)
         button.setImage(Images.like(.selected), for: .normal)
         button.tintColor = Colors.white
         button.layer.cornerRadius = 4
@@ -123,8 +123,12 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         priceLabel.text = item.priceString
     }
     
+    func highlightText(text: String) {
+        productNameLabel.withMultipleColor(Colors.black, range: text)
+    }
+    
     func deselectAction() {
-        likeButton.backgroundColor = Colors.balck.withAlphaComponent(0.3)
+        likeButton.backgroundColor = Colors.black.withAlphaComponent(0.3)
         likeButton.setImage(Images.like(.selected), for: .normal)
         likeButton.tintColor = Colors.white
     }
