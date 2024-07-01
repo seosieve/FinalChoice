@@ -1,13 +1,13 @@
 //
-//  UICollectionViewCell+Extension.swift
+//  NSObjectProtocol + Extension.swift
 //  FinalChoice
 //
-//  Created by 서충원 on 6/15/24.
+//  Created by 서충원 on 7/1/24.
 //
 
-import UIKit
+import Foundation
 
-extension UICollectionViewCell: ReusableIdentifier {
+extension NSObjectProtocol {
     // Automatically Create Identifier
     static var identifier: String {
         return String(describing: self)

@@ -7,8 +7,8 @@
 
 import UIKit
 
+//Observer
 class NicknameSettingViewController: UIViewController {
-    
     private var customView = NicknameSettingView()
     private var customModel = NicknameSettingModel()
     
@@ -43,11 +43,8 @@ extension NicknameSettingViewController: NicknameSettingDelegate {
         ///Make User & Reset Initial View
         customModel.makeUserProfile()
         
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
         let vc = TabBarViewController()
-        sceneDelegate?.window?.rootViewController = vc
-        sceneDelegate?.window?.makeKeyAndVisible()
+        makeInitialView(vc)
     }
 }
 

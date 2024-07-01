@@ -40,6 +40,7 @@ class NicknameSettingView: BaseView {
         hideKeyboardWhenTappedAround()
         nicknameTextField.delegate = self
     }
+  
     
     override func configureSubviews() {
         self.addSubview(divider)

@@ -34,17 +34,13 @@ class SettingViewController: UIViewController {
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 4 else { return }
-        withdrawAlert() {
+        withdrawAlert {
             ///Delete User & Reset Initial View
             self.customModel.deleteAllUserInfo()
             
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-            let sceneDelegate = windowScene?.delegate as? SceneDelegate
-            let vc = OnboardingViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            nav.navigationBar.setUpBarAppearance()
-            sceneDelegate?.window?.rootViewController = nav
-            sceneDelegate?.window?.makeKeyAndVisible()
+            let vc = UINavigationController(rootViewController: OnboardingViewController())
+            vc.navigationBar.setUpBarAppearance()
+            self.makeInitialView(vc)
         }
     }
 }

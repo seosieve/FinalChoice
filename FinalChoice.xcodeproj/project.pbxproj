@@ -28,7 +28,6 @@
 		4E3AF1FC2C206AA4009F8472 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF1FB2C206AA4009F8472 /* UIViewController+Extension.swift */; };
 		4E3AF1FE2C206DE5009F8472 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF1FD2C206DE5009F8472 /* UIView+Extension.swift */; };
 		4E3AF2002C206F64009F8472 /* NicknameChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF1FF2C206F64009F8472 /* NicknameChangeViewController.swift */; };
-		4E3AF2052C207115009F8472 /* NicknameChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF2042C207115009F8472 /* NicknameChangeModel.swift */; };
 		4E3AF20E2C213FE1009F8472 /* ImageChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF20D2C213FE1009F8472 /* ImageChangeViewController.swift */; };
 		4E3AF2102C214453009F8472 /* SearchedWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF20F2C214453009F8472 /* SearchedWordTableViewCell.swift */; };
 		4E3AF2122C216E49009F8472 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AF2112C216E49009F8472 /* UITableView+Extension.swift */; };
@@ -50,9 +49,8 @@
 		4E7623912C1D81C3002DDB17 /* NicknameSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7623902C1D81C3002DDB17 /* NicknameSettingModel.swift */; };
 		4E7623932C1DA0BB002DDB17 /* ImageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7623922C1DA0BB002DDB17 /* ImageSettingViewController.swift */; };
 		4E7623952C1DA0F5002DDB17 /* ImageSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7623942C1DA0F5002DDB17 /* ImageSettingView.swift */; };
-		4E7623972C1DA4C8002DDB17 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7623962C1DA4C8002DDB17 /* Identifier.swift */; };
-		4E7623992C1DA50A002DDB17 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7623982C1DA50A002DDB17 /* UICollectionViewCell+Extension.swift */; };
 		4E76239C2C1DA564002DDB17 /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76239B2C1DA564002DDB17 /* ProfileImageCollectionViewCell.swift */; };
+		4E7D0A2F2C32B64C000A9FF2 /* NSObjectProtocol + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D0A2E2C32B64C000A9FF2 /* NSObjectProtocol + Extension.swift */; };
 		4EAEEAA32C1AF52900A61BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAEEAA22C1AF52900A61BE4 /* AppDelegate.swift */; };
 		4EAEEAA52C1AF52900A61BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAEEAA42C1AF52900A61BE4 /* SceneDelegate.swift */; };
 		4EAEEAAC2C1AF52B00A61BE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EAEEAAB2C1AF52B00A61BE4 /* Assets.xcassets */; };
@@ -90,7 +88,6 @@
 		4E3AF1FB2C206AA4009F8472 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4E3AF1FD2C206DE5009F8472 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4E3AF1FF2C206F64009F8472 /* NicknameChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeViewController.swift; sourceTree = "<group>"; };
-		4E3AF2042C207115009F8472 /* NicknameChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameChangeModel.swift; sourceTree = "<group>"; };
 		4E3AF20D2C213FE1009F8472 /* ImageChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageChangeViewController.swift; sourceTree = "<group>"; };
 		4E3AF20F2C214453009F8472 /* SearchedWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedWordTableViewCell.swift; sourceTree = "<group>"; };
 		4E3AF2112C216E49009F8472 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -112,9 +109,8 @@
 		4E7623902C1D81C3002DDB17 /* NicknameSettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingModel.swift; sourceTree = "<group>"; };
 		4E7623922C1DA0BB002DDB17 /* ImageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSettingViewController.swift; sourceTree = "<group>"; };
 		4E7623942C1DA0F5002DDB17 /* ImageSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSettingView.swift; sourceTree = "<group>"; };
-		4E7623962C1DA4C8002DDB17 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
-		4E7623982C1DA50A002DDB17 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		4E76239B2C1DA564002DDB17 /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E7D0A2E2C32B64C000A9FF2 /* NSObjectProtocol + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObjectProtocol + Extension.swift"; sourceTree = "<group>"; };
 		4EAEEA9F2C1AF52900A61BE4 /* FinalChoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalChoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EAEEAA22C1AF52900A61BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EAEEAA42C1AF52900A61BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				4E3AF2152C2184BA009F8472 /* SettingModel.swift */,
-				4E3AF2042C207115009F8472 /* NicknameChangeModel.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -244,19 +239,12 @@
 		4E76237B2C1BED40002DDB17 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4E7623702C1BD0FE002DDB17 /* Base */,
 				4E275EC12C1EAE9B00167C14 /* SignUp */,
 				4E275EC02C1EAE8D00167C14 /* Search */,
 				4E275EC22C1EAEB900167C14 /* Setting */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		4E7623802C1C1B3A002DDB17 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				4E7623962C1DA4C8002DDB17 /* Identifier.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		4E76239A2C1DA539002DDB17 /* Cell */ = {
@@ -268,6 +256,34 @@
 				4E3AF1F52C20587A009F8472 /* SettingTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4E7D0A2C2C32B582000A9FF2 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				4EAEEAAD2C1AF52B00A61BE4 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		4E7D0A2D2C32B599000A9FF2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4EAEEAA22C1AF52900A61BE4 /* AppDelegate.swift */,
+				4EAEEAA42C1AF52900A61BE4 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4E7D0A302C32B701000A9FF2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4EAEEAB62C1AF57B00A61BE4 /* Models */,
+				4E76239A2C1DA539002DDB17 /* Cell */,
+				4E76237B2C1BED40002DDB17 /* Views */,
+				4EAEEABA2C1AF60500A61BE4 /* Controllers */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		4EAEEA962C1AF52900A61BE4 = {
@@ -290,13 +306,10 @@
 		4EAEEAA12C1AF52900A61BE4 /* FinalChoice */ = {
 			isa = PBXGroup;
 			children = (
+				4E7D0A2C2C32B582000A9FF2 /* StoryBoard */,
+				4E7D0A2D2C32B599000A9FF2 /* Application */,
 				4EAEEABB2C1AF61F00A61BE4 /* Resources */,
-				4E76239A2C1DA539002DDB17 /* Cell */,
-				4EAEEAB62C1AF57B00A61BE4 /* Models */,
-				4E76237B2C1BED40002DDB17 /* Views */,
-				4EAEEABA2C1AF60500A61BE4 /* Controllers */,
-				4EAEEAAD2C1AF52B00A61BE4 /* LaunchScreen.storyboard */,
-				4EAEEAB02C1AF52B00A61BE4 /* Info.plist */,
+				4E7D0A302C32B701000A9FF2 /* Presentation */,
 			);
 			path = FinalChoice;
 			sourceTree = "<group>";
@@ -327,12 +340,9 @@
 		4EAEEABB2C1AF61F00A61BE4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EAEEAB02C1AF52B00A61BE4 /* Info.plist */,
 				4EAEEAAB2C1AF52B00A61BE4 /* Assets.xcassets */,
 				4EAEEAC52C1B003000A61BE4 /* ZingRustDemo-Base.otf */,
-				4EAEEAA22C1AF52900A61BE4 /* AppDelegate.swift */,
-				4EAEEAA42C1AF52900A61BE4 /* SceneDelegate.swift */,
-				4E7623802C1C1B3A002DDB17 /* Protocol */,
-				4E7623702C1BD0FE002DDB17 /* Base */,
 				4EAEEABC2C1AF65400A61BE4 /* Extensions */,
 				4EAEEAC42C1AFE0E00A61BE4 /* Enum */,
 				4EAEEABF2C1AF7B800A61BE4 /* Key */,
@@ -346,11 +356,11 @@
 				4E3AF1FB2C206AA4009F8472 /* UIViewController+Extension.swift */,
 				4E7623832C1D5B26002DDB17 /* UINavigationController+Extension.swift */,
 				4E7623892C1D6BA5002DDB17 /* UITextField+Extension.swift */,
-				4E7623982C1DA50A002DDB17 /* UICollectionViewCell+Extension.swift */,
 				4E3AF2112C216E49009F8472 /* UITableView+Extension.swift */,
 				4E3AF1F72C2058E6009F8472 /* UITableViewCell+Extension.swift */,
 				4E3AF1F92C206684009F8472 /* UILabel+Extension.swift */,
 				4E3AF1FD2C206DE5009F8472 /* UIView+Extension.swift */,
+				4E7D0A2E2C32B64C000A9FF2 /* NSObjectProtocol + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -467,12 +477,10 @@
 				4E275EBF2C1EAAF500167C14 /* SearchView.swift in Sources */,
 				4E3AF1F62C20587A009F8472 /* SettingTableViewCell.swift in Sources */,
 				4E7623782C1BE0DF002DDB17 /* BaseButton.swift in Sources */,
-				4E7623972C1DA4C8002DDB17 /* Identifier.swift in Sources */,
 				4E3AF1F42C203B45009F8472 /* SearchDetailModel.swift in Sources */,
 				4E7623952C1DA0F5002DDB17 /* ImageSettingView.swift in Sources */,
-				4E3AF2052C207115009F8472 /* NicknameChangeModel.swift in Sources */,
 				4E76237A2C1BE492002DDB17 /* NicknameSettingViewController.swift in Sources */,
-				4E7623992C1DA50A002DDB17 /* UICollectionViewCell+Extension.swift in Sources */,
+				4E7D0A2F2C32B64C000A9FF2 /* NSObjectProtocol + Extension.swift in Sources */,
 				4E275EB92C1EA4B100167C14 /* SearchViewController.swift in Sources */,
 				4E275ECD2C1EBE3A00167C14 /* SearchResultCollectionViewCell.swift in Sources */,
 				4EAEEABE2C1AF6BE00A61BE4 /* OnboardingViewController.swift in Sources */,
@@ -654,12 +662,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B44YL23J9X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FinalChoice/Info.plist;
+				INFOPLIST_FILE = FinalChoice/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "서충원";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -687,12 +696,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B44YL23J9X;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FinalChoice/Info.plist;
+				INFOPLIST_FILE = FinalChoice/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "서충원";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

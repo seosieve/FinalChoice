@@ -9,8 +9,9 @@ import UIKit
 
 //MARK: - Custom NavigationBar Style
 extension UINavigationBar {
-    // Set Up Custom NavigationBar Style
+    // Set Up Custom NavigationBar
     func setUpBarAppearance(isSearch: Bool = false) {
+        ///If SearchViewController, it uses Korean, otherwise uses English Font
         let font = isSearch ? Fonts.main : Fonts.nav
         
         let appearance = UINavigationBarAppearance()
