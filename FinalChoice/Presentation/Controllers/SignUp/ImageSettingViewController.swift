@@ -26,7 +26,7 @@ class ImageSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
-        navigationItem.title = NavigationTitleNames.profile
+        navigationItem.title = Names.NavigationTitleNames.profile
         customView.setSelectedProfileImage(number: number)
         customView.profileCollectionView.delegate = self
         customView.profileCollectionView.dataSource = self

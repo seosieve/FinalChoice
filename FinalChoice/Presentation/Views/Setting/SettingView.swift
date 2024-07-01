@@ -141,7 +141,7 @@ class SettingView: BaseView {
 //MARK: - UITableViewDataSource
 extension SettingView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingListNames.titleArr.count
+        return Names.SettingListNames.titleArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

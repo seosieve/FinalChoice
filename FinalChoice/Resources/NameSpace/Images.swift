@@ -20,7 +20,7 @@ enum Images {
         return UIImage(named: "profile_\(number)")!
     }
     
-    static func like(_ state: ButtonCellStates) -> UIImage {
+    static func like(_ state: Names.ButtonCellStates) -> UIImage {
         return state == .selected ? UIImage(named: "like_selected")! : UIImage(named: "like_unselected")!.withRenderingMode(.alwaysOriginal)
     }
 }

@@ -344,7 +344,7 @@
 				4EAEEAAB2C1AF52B00A61BE4 /* Assets.xcassets */,
 				4EAEEAC52C1B003000A61BE4 /* ZingRustDemo-Base.otf */,
 				4EAEEABC2C1AF65400A61BE4 /* Extensions */,
-				4EAEEAC42C1AFE0E00A61BE4 /* Enum */,
+				4EAEEAC42C1AFE0E00A61BE4 /* NameSpace */,
 				4EAEEABF2C1AF7B800A61BE4 /* Key */,
 			);
 			path = Resources;
@@ -373,7 +373,7 @@
 			path = Key;
 			sourceTree = "<group>";
 		};
-		4EAEEAC42C1AFE0E00A61BE4 /* Enum */ = {
+		4EAEEAC42C1AFE0E00A61BE4 /* NameSpace */ = {
 			isa = PBXGroup;
 			children = (
 				4E7623732C1BD975002DDB17 /* Names.swift */,
@@ -381,7 +381,7 @@
 				4E76236E2C1BCDE8002DDB17 /* Fonts.swift */,
 				4E7623752C1BDA1B002DDB17 /* Images.swift */,
 			);
-			path = Enum;
+			path = NameSpace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

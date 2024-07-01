@@ -24,7 +24,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
-        navigationItem.title = NavigationTitleNames.main
+        navigationItem.title = Names.NavigationTitleNames.main
         customView.delegate = self
         customView.searchedWordTableView.delegate = self
         customView.searchedWordTableView.dataSource = self

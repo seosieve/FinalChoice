@@ -29,9 +29,9 @@ struct NicknameSettingModel {
     
     var number = Int.random(in: 0...11)
     var nickname = ""
-    var state = NicknameStateNames.emptyNickname
+    var state = Names.NicknameStateNames.emptyNickname
     
-    func makeStateString(_ text: String) -> NicknameStateNames {
+    func makeStateString(_ text: String) -> Names.NicknameStateNames {
         let numberPattern = "(?=.*[0-9])"
         let symbolPattern = "(?=.*[@#$%])"
         //Catch Number Included

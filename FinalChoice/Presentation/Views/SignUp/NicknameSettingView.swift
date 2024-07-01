@@ -31,7 +31,7 @@ class NicknameSettingView: BaseView {
         return label
     }()
     
-    lazy var completeButton = BaseButton(name: ButtonNames.complete, state: ButtonCellStates.deselected) { sender in
+    lazy var completeButton = BaseButton(name: Names.ButtonNames.complete, state: Names.ButtonCellStates.deselected) { sender in
         self.delegate?.completeButtonAction()
     }
     
@@ -93,7 +93,7 @@ class NicknameSettingView: BaseView {
         nicknameTextField.text = nickname
     }
     
-    func changeNicknameAppearance(state: NicknameStateNames) {
+    func changeNicknameAppearance(state: Names.NicknameStateNames) {
         stateLabel.text = state.rawValue
         
         UIView.animate(withDuration: 0.5) {

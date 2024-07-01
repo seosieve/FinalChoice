@@ -20,7 +20,7 @@ class OnboardingView: BaseView {
 
     private let appNameLabel = {
         let label = UILabel()
-        label.text = Names.appName
+        label.text = Names.TitleNames.appName
         label.font = Fonts.title
         label.textColor = Colors.main
         label.textAlignment = .center
@@ -28,7 +28,7 @@ class OnboardingView: BaseView {
         return label
     }()
     
-    private lazy var startButton = BaseButton(name: ButtonNames.start) { sender in
+    private lazy var startButton = BaseButton(name: Names.ButtonNames.start) { sender in
         self.delegate?.startButtonAction()
     }
     

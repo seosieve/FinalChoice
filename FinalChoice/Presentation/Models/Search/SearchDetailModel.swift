@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchDetailModel {
-    private var likeState: ButtonCellStates!
+    private var likeState: Names.ButtonCellStates!
     
     func configureLikeImage(productId: String) -> UIImage {
         let isLiked = UserDefaultManager.isLiked(productId)

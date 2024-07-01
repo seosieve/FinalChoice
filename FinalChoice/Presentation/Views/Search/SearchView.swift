@@ -13,7 +13,7 @@ class SearchView: BaseView {
     
     lazy var searchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = PlaceholderNames.searchBar.rawValue
+        searchBar.placeholder = Names.PlaceholderNames.searchBar.rawValue
         searchBar.backgroundImage = UIImage()
         return searchBar
     }()
@@ -56,7 +56,7 @@ class SearchView: BaseView {
     
     private let emptyLabel = {
         let label = UILabel()
-        label.text = Names.empty
+        label.text = Names.TitleNames.empty
         label.font = Fonts.main
         label.textColor = Colors.dark
         label.textAlignment = .center

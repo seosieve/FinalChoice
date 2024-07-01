@@ -11,7 +11,7 @@ import Alamofire
 class SearchResultModel {
     
     let maxLimit = 1000
-    var sort = ButtonNames.sim
+    var sort = Names.ButtonNames.sim
     
     var itemResultUpdated: ((ItemResult) -> ())?
     
@@ -19,7 +19,7 @@ class SearchResultModel {
         didSet { itemResultUpdated?(itemResult) }
     }
     
-    func shoppingRequest(text: String, sort: ButtonNames, start: Int, handler: @escaping (ItemResult) -> ()) {
+    func shoppingRequest(text: String, sort: Names.ButtonNames, start: Int, handler: @escaping (ItemResult) -> ()) {
         let url = APIURL.shoppingUrl(text: text, sort: sort, start: start)
         let headers = APIURL.headers
         
@@ -44,7 +44,7 @@ class SearchResultModel {
         }
     }
     
-    func paginationAction(indexPath: IndexPath, handler: @escaping (ButtonNames, Int) -> ()) {
+    func paginationAction(indexPath: IndexPath, handler: @escaping (Names.ButtonNames, Int) -> ()) {
         let itemCount = itemResult.items.count - 1
         let limit = itemResult.start
         

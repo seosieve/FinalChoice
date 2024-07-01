@@ -12,7 +12,7 @@ import Kingfisher
 class SearchResultCollectionViewCell: UICollectionViewCell {
     
     var productId: String!
-    var state: ButtonCellStates!
+    var state: Names.ButtonCellStates!
     
     private lazy var resultImageView = {
         let imageView = UIImageView()

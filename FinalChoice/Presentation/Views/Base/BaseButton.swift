@@ -11,7 +11,7 @@ class BaseButton: UIButton {
     
     private var action: ((UIButton) -> ())?
     
-    init(name: ButtonNames, state: ButtonCellStates = .selected, action: @escaping (UIButton) -> ()) {
+    init(name: Names.ButtonNames, state: Names.ButtonCellStates = .selected, action: @escaping (UIButton) -> ()) {
         super.init(frame: .zero)
         self.action = action
         self.backgroundColor = state == .selected ? Colors.main : Colors.light

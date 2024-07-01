@@ -44,7 +44,7 @@ class SearchResultViewController: UIViewController {
         customView.searchResultCollectionView.reloadData()
     }
     
-    private func loadItemResult(sort: ButtonNames, start: Int) {
+    private func loadItemResult(sort: Names.ButtonNames, start: Int) {
         customView.makeToastActivity(.center)
         customModel.shoppingRequest(text: text, sort: sort, start: start) { itemResult in
             self.customView.hideToastActivity()
@@ -90,7 +90,7 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
 
 //MARK: - SearchResultDelegate
 extension SearchResultViewController: SearchResultDelegate {
-    func sortButtonAction(_ name: ButtonNames) {
+    func sortButtonAction(_ name: Names.ButtonNames) {
         customView.reloadSortButttons(name: name)
         customModel.sort = name
         loadItemResult(sort: customModel.sort, start: 1)

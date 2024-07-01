@@ -29,19 +29,19 @@ class SearchResultView: BaseView {
         return stackView
     }()
     
-    private lazy var simButton = BaseSortButton(name: ButtonNames.sim, state: ButtonCellStates.selected) { name in
+    private lazy var simButton = BaseSortButton(name: Names.ButtonNames.sim, state: Names.ButtonCellStates.selected) { name in
         self.delegate?.sortButtonAction(.sim)
     }
     
-    private lazy var dateButton = BaseSortButton(name: ButtonNames.date) { name in
+    private lazy var dateButton = BaseSortButton(name: Names.ButtonNames.date) { name in
         self.delegate?.sortButtonAction(.date)
     }
     
-    private lazy var dscButton = BaseSortButton(name: ButtonNames.dsc) { name in
+    private lazy var dscButton = BaseSortButton(name: Names.ButtonNames.dsc) { name in
         self.delegate?.sortButtonAction(.dsc)
     }
     
-    private lazy var ascButton = BaseSortButton(name: ButtonNames.asc) { name in
+    private lazy var ascButton = BaseSortButton(name: Names.ButtonNames.asc) { name in
         self.delegate?.sortButtonAction(.asc)
     }
     
@@ -75,7 +75,7 @@ class SearchResultView: BaseView {
     
     private let emptyLabel = {
         let label = UILabel()
-        label.text = Names.noResult
+        label.text = Names.TitleNames.noResult
         label.font = Fonts.main
         label.textColor = Colors.dark
         label.textAlignment = .center
@@ -128,7 +128,7 @@ class SearchResultView: BaseView {
         }
     }
     
-    func reloadSortButttons(name: ButtonNames) {
+    func reloadSortButttons(name: Names.ButtonNames) {
         for subview in sortButttonStackView.arrangedSubviews {
             guard let sortButton = subview as? BaseSortButton else { return }
             sortButton.buttonState = sortButton.buttonName == name ? .selected : .deselected
@@ -156,5 +156,5 @@ class SearchResultView: BaseView {
 }
 
 protocol SearchResultDelegate: AnyObject {
-    func sortButtonAction(_ name: ButtonNames)
+    func sortButtonAction(_ name: Names.ButtonNames)
 }

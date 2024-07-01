@@ -29,7 +29,7 @@ class NicknameChangeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
-        navigationItem.title = NavigationTitleNames.setting
+        navigationItem.title = Names.NavigationTitleNames.setting
         customView.delegate = self
         customView.hideCompleteButton()
         customView.setProfileImage(number: customModel.number)

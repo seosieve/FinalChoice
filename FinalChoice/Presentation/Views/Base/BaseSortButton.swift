@@ -10,14 +10,14 @@ import SnapKit
 
 class BaseSortButton: UIButton {
     
-    private var action: ((ButtonNames) -> ())?
-    var buttonName: ButtonNames!
+    private var action: ((Names.ButtonNames) -> ())?
+    var buttonName: Names.ButtonNames!
     
-    var buttonState: ButtonCellStates! {
+    var buttonState: Names.ButtonCellStates! {
         didSet { buttonStateToggleAction(state: buttonState) }
     }
     
-    init(name: ButtonNames, state: ButtonCellStates = .deselected, action: @escaping (ButtonNames) -> ()) {
+    init(name: Names.ButtonNames, state: Names.ButtonCellStates = .deselected, action: @escaping (Names.ButtonNames) -> ()) {
         super.init(frame: .zero)
         self.action = action
         self.buttonName = name
@@ -46,7 +46,7 @@ class BaseSortButton: UIButton {
         action?(buttonName)
     }
     
-    private func buttonStateToggleAction(state: ButtonCellStates) {
+    private func buttonStateToggleAction(state: Names.ButtonCellStates) {
         self.backgroundColor = state == .selected ? Colors.dark : Colors.white
         let titleColor = state == .selected ? Colors.white : Colors.medium
         self.setTitleColor(titleColor, for: .normal)

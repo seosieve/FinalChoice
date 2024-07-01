@@ -11,7 +11,7 @@ class BaseTextField: UITextField {
     
     private var action: ((String) -> ())?
     
-    init(placeHolder: PlaceholderNames, action: @escaping (String) -> ()) {
+    init(placeHolder: Names.PlaceholderNames, action: @escaping (String) -> ()) {
         super.init(frame: .zero)
         self.action = action
         self.placeholder = placeHolder.rawValue

@@ -78,7 +78,7 @@ class SettingTableViewCell: UITableViewCell {
             productCountLabel.isHidden = false
             productImageView.isHidden = false
         }
-        titleLabel.text = SettingListNames.titleArr[index]
+        titleLabel.text = Names.SettingListNames.titleArr[index]
         productCountLabel.text = String(likeCount) + "개의 상품"
         productCountLabel.withMultipleColor(Colors.medium, range: "의 상품")
     }

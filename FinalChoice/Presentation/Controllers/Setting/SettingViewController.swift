@@ -15,7 +15,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
-        navigationItem.title = NavigationTitleNames.setting
+        navigationItem.title = Names.NavigationTitleNames.setting
         customView.delegate = self
         customView.settingTableView.delegate = self
     }
