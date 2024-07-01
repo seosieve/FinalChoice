@@ -36,7 +36,11 @@ struct Item: Decodable {
 
 extension Item {
     var titleString: String {
-        return title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue]
+        let attrString = try? NSAttributedString(data: Data(title.utf8), options: options, documentAttributes: nil)
+        return attrString?.string ?? String()
     }
     
     var priceString: String {

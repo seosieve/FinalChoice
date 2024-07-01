@@ -24,10 +24,13 @@ class SearchResultViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setUpBarAppearance(isSearch: true)
-        self.view = customView
         navigationItem.title = text
         customView.searchResultCollectionView.delegate = self
         customView.searchResultCollectionView.dataSource = self

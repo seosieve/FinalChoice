@@ -23,9 +23,12 @@ class ImageSettingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = customView
         navigationItem.title = Names.NavigationTitleNames.profile
         customView.setSelectedProfileImage(number: number)
         customView.profileCollectionView.delegate = self

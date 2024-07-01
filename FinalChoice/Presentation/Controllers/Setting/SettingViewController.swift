@@ -12,9 +12,12 @@ class SettingViewController: UIViewController {
     private var customView = SettingView()
     private var customModel = SettingModel()
 
+    override func loadView() {
+        self.view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = customView
         navigationItem.title = Names.NavigationTitleNames.setting
         customView.delegate = self
         customView.settingTableView.delegate = self

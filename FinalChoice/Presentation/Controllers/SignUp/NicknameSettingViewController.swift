@@ -12,9 +12,12 @@ class NicknameSettingViewController: UIViewController {
     private var customView = NicknameSettingView()
     private var customModel = NicknameSettingModel()
     
+    override func loadView() {
+        self.view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = customView
         navigationItem.title = Names.NavigationTitleNames.profile
         customView.setProfileImage(number: customModel.number)
         customView.delegate = self

@@ -21,9 +21,12 @@ class SearchViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = customView
         navigationItem.title = Names.NavigationTitleNames.main
         customView.delegate = self
         customView.searchedWordTableView.delegate = self

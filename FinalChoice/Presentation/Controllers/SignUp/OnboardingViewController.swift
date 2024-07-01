@@ -11,9 +11,12 @@ class OnboardingViewController: UIViewController {
     
     private var customView = OnboardingView()
     
+    override func loadView() {
+        self.view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = customView
         customView.delegate = self
     }
 }

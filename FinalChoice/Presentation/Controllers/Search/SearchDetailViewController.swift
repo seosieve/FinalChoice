@@ -27,9 +27,12 @@ class SearchDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = customView
         navigationItem.title = titleString
         let likeImage = customModel.configureLikeImage(productId: productId)
         let likeButton = UIBarButtonItem(image: likeImage, style: .plain, target: self, action: #selector(likeButtonClicked))
