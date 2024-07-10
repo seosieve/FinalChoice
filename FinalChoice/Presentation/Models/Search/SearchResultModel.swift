@@ -77,8 +77,8 @@ final class SearchResultModel {
     
     func addImageAction(_ item: Item) {
         let url = URL(string: item.image)
-        KFManager.fetchImage(from: url) { image, error in
-            guard let image else { return }
+        KFManager.fetchImage(from: url) { result in
+            guard let image = try? result.get() else { return }
             self.imageRepository.addImage(image: image, fileName: item.productId)
         }
     }

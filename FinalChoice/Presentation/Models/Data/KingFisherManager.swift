@@ -9,13 +9,15 @@ import UIKit
 import Kingfisher
 
 class KFManager {
-    static func fetchImage(from url: URL?, completion: @escaping (UIImage?, Error?) -> Void) {
-        KingfisherManager.shared.retrieveImage(with: url!) { result in
+    static func fetchImage(from url: URL?, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        guard let url else { completion(.failure(NSError(domain: "Invalid URL", code: 0))); return }
+        
+        KingfisherManager.shared.retrieveImage(with: url) { result in
             switch result {
             case .success(let value):
-                completion(value.image, nil)
+                completion(.success(value.image))
             case .failure(let error):
-                completion(nil, error)
+                completion(.failure(error))
             }
         }
     }
