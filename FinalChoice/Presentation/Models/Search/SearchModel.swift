@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchModel {
+final class SearchModel {
     
     var searchedTextUpdated: ((Int) -> ())?
     

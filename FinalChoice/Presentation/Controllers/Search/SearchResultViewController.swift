@@ -56,14 +56,18 @@ class SearchResultViewController: UIViewController {
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource, SearchResultCellDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return customModel.itemResult.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = customModel.itemResult.items[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
+        let identifier = SearchResultCollectionViewCell.identifier
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? SearchResultCollectionViewCell
+        guard let cell else { return UICollectionViewCell() }
+        
+        cell.delegate = self
         cell.configureCell(item: item)
         cell.highlightText(text: text)
         return cell
@@ -77,6 +81,15 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         let vc = SearchDetailViewController(link: link, productId: productId, titleString: titleString)
         self.removeBackButtonTitle()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func likeButtonAction(_ cell: SearchResultCollectionViewCell, _ item: Item) {
+        ///UserDefaults
+        cell.state == .selected ? UserDefaultManager.addLike(cell.item.productId) : UserDefaultManager.removeLike(cell.item.productId)
+        ///Realm
+        cell.state == .selected ? customModel.addBasketAction(item) : customModel.deleteBasketAction(item)
+        ///FileManager
+        cell.state == .selected ? customModel.addImageAction(item) : customModel.deleteImageAction(item)
     }
 }
 

@@ -9,12 +9,18 @@ import UIKit
 import SnapKit
 import Kingfisher
 
+protocol SearchResultCellDelegate: AnyObject {
+    func likeButtonAction(_ cell: SearchResultCollectionViewCell, _ item: Item)
+}
+
 class SearchResultCollectionViewCell: UICollectionViewCell {
     
-    var productId: String!
+    var item: Item!
     var state: Names.ButtonCellStates!
     
-    private lazy var resultImageView = {
+    weak var delegate: SearchResultCellDelegate?
+    
+    lazy var resultImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
         imageView.contentMode = .scaleAspectFill
@@ -71,7 +77,8 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     @objc func likeButtonClicked(_ sender: UIButton) {
         state.toggleState()
         state == .selected ? selectAnimation() : deselectAction()
-        state == .selected ? UserDefaultManager.addLike(productId) : UserDefaultManager.removeLike(productId)
+        
+        delegate?.likeButtonAction(self, item)
     }
     
     private func configureSubviews() {
@@ -110,8 +117,8 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(item: Item) {
-        productId = item.productId
-        let liked = UserDefaultManager.isLiked(productId)
+        self.item = item
+        let liked = UserDefaultManager.isLiked(item.productId)
         state = liked ? .selected : .deselected
         liked ? selectAction() : deselectAction()
         

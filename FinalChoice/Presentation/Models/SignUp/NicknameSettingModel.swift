@@ -7,26 +7,7 @@
 
 import UIKit
 
-// Publisher
-
 struct NicknameSettingModel {
-//    var observer: Observer!
-//    var number = Int.random(in: 0...11) {
-//        didSet {
-//            observer.updateNumber()
-//        }
-//    }
-//    var nickname = "" {
-//        didSet {
-//            obsever.updateNickname()
-//        }
-//    }
-//    var state = NicknameStateNames.emptyNickname
-//    
-//    func addObserver(observer: Observer) {
-//        self.observer = observer
-//    }
-    
     var number = Int.random(in: 0...11)
     var nickname = ""
     var state = Names.NicknameStateNames.emptyNickname

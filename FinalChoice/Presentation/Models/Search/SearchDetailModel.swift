@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
-class SearchDetailModel {
+final class SearchDetailModel {
+    var repository = BasketRepository()
+    var imageRepository = ImageFileRepository()
+    
     private var likeState: Names.ButtonCellStates!
     
     func configureLikeImage(productId: String) -> UIImage {

@@ -36,6 +36,7 @@ enum Names {
         static let profile = "PROFILE SETTING"
         static let main = "FINAL CHOICE"
         static let setting = "SETTING"
+        static let basket = "BASKET"
     }
 
     enum PlaceholderNames: String {

@@ -7,8 +7,12 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
-class SearchResultModel {
+final class SearchResultModel {
+    
+    var repository = BasketRepository()
+    var imageRepository = ImageFileRepository()
     
     let maxLimit = 1000
     var sort = Names.ButtonNames.sim
@@ -51,6 +55,36 @@ class SearchResultModel {
         if itemCount == indexPath.item && limit < maxLimit {
             handler(sort, limit + 10)
         }
+    }
+    
+    func addBasketAction(_ item: Item) {
+        let productId = item.productId
+        let title = item.titleString
+        let mallName = item.mallName
+        let price = Int(item.lprice) ?? 0
+        
+        let basket = Basket(productId: productId, title: title, mallName: mallName, price: price)
+        
+        repository.addObject(object: basket)
+    }
+    
+    func deleteBasketAction(_ item: Item) {
+        let productId = item.productId
+        guard let basket = repository.allObjects.first(where: { $0.productId == productId }) else { return }
+        
+        repository.deleteObject(object: basket)
+    }
+    
+    func addImageAction(_ item: Item) {
+        let url = URL(string: item.image)
+        KFManager.fetchImage(from: url) { image, error in
+            guard let image else { return }
+            self.imageRepository.addImage(image: image, fileName: item.productId)
+        }
+    }
+    
+    func deleteImageAction(_ item: Item) {
+        imageRepository.deleteImage(item.productId)
     }
 }
 

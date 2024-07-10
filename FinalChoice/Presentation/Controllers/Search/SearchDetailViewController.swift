@@ -38,8 +38,6 @@ class SearchDetailViewController: UIViewController {
         let likeButton = UIBarButtonItem(image: likeImage, style: .plain, target: self, action: #selector(likeButtonClicked))
         navigationItem.rightBarButtonItem = likeButton
         customView.configureWebView(link: link)
-        
-        print(link)
     }
     
     @objc func likeButtonClicked(_ sender: UIBarButtonItem) {
