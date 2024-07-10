@@ -29,6 +29,18 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    lazy var deleteButton = {
+        let button = UIButton()
+        button.backgroundColor = Colors.black.withAlphaComponent(0.3)
+        let imageConfig = UIImage.SymbolConfiguration(weight: .bold)
+        let image = Images.xmark?.withConfiguration(imageConfig)
+        button.setImage(image, for: .normal)
+        button.tintColor = Colors.white
+        button.layer.cornerRadius = 4
+        button.isHidden = true
+        return button
+    }()
+    
     private lazy var likeButton = {
         let button = UIButton()
         button.backgroundColor = Colors.black.withAlphaComponent(0.3)
@@ -83,6 +95,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     private func configureSubviews() {
         self.addSubview(resultImageView)
+        self.addSubview(deleteButton)
         self.addSubview(likeButton)
         self.addSubview(sellerLabel)
         self.addSubview(productNameLabel)
@@ -93,6 +106,11 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         resultImageView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
             make.height.equalTo(resultImageView.snp.width).multipliedBy(1.2)
+        }
+        
+        deleteButton.snp.makeConstraints { make in
+            make.trailing.top.equalTo(resultImageView).inset(10)
+            make.size.equalTo(30)
         }
         
         likeButton.snp.makeConstraints { make in
@@ -128,6 +146,17 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         sellerLabel.text = item.mallName
         productNameLabel.text = item.titleString
         priceLabel.text = item.priceString
+    }
+    
+    func configureCell(basket: Basket, image: UIImage) {
+        deleteButton.isHidden = false
+        likeButton.isHidden = true
+        
+        resultImageView.image = image
+        
+        sellerLabel.text = basket.mallName
+        productNameLabel.text = basket.title
+        priceLabel.text = String(basket.price)
     }
     
     func highlightText(text: String) {

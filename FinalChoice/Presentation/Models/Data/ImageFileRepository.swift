@@ -33,9 +33,9 @@ final class ImageFileRepository {
         }
     }
     
-    func loadImage(filename: String) -> UIImage? {
-        guard manager.fileExists(atPath: fileURL(filename).path) else { return nil }
-        return UIImage(contentsOfFile: fileURL(filename).path)
+    func loadImage(fileName: String) -> UIImage? {
+        guard manager.fileExists(atPath: fileURL(fileName).path) else { return nil }
+        return UIImage(contentsOfFile: fileURL(fileName).path)
     }
     
     private func fileURL(_ fileName: String) -> URL {

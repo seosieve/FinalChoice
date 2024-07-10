@@ -66,6 +66,7 @@ final class SearchResultModel {
         let basket = Basket(productId: productId, title: title, mallName: mallName, price: price)
         
         repository.addObject(object: basket)
+        addImageAction(item)
     }
     
     func deleteBasketAction(_ item: Item) {
@@ -73,6 +74,7 @@ final class SearchResultModel {
         guard let basket = repository.allObjects.first(where: { $0.productId == productId }) else { return }
         
         repository.deleteObject(object: basket)
+        deleteImageAction(item)
     }
     
     func addImageAction(_ item: Item) {

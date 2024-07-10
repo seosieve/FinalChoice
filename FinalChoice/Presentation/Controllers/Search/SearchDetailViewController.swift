@@ -12,15 +12,11 @@ class SearchDetailViewController: UIViewController {
     private var customView = SearchDetailView()
     private var customModel = SearchDetailModel()
     
-    private var link: String!
-    private var productId: String!
-    private var titleString: String!
+    private var item: Item
     
-    init(link: String, productId: String, titleString: String) {
+    init(item: Item) {
+        self.item = item
         super.init(nibName: nil, bundle: nil)
-        self.link = link
-        self.productId = productId
-        self.titleString = titleString
     }
     
     required init?(coder: NSCoder) {
@@ -33,15 +29,15 @@ class SearchDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = titleString
-        let likeImage = customModel.configureLikeImage(productId: productId)
+        navigationItem.title = item.titleString
+        let likeImage = customModel.configureLikeImage(productId: item.productId)
         let likeButton = UIBarButtonItem(image: likeImage, style: .plain, target: self, action: #selector(likeButtonClicked))
         navigationItem.rightBarButtonItem = likeButton
-        customView.configureWebView(link: link)
+        customView.configureWebView(link: item.link)
     }
     
     @objc func likeButtonClicked(_ sender: UIBarButtonItem) {
-        let likeImage = customModel.changeLikeImage(productId: productId)
+        let likeImage = customModel.changeLikeImage(item: item)
         navigationItem.rightBarButtonItem?.image = likeImage
     }
 }

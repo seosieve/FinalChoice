@@ -75,10 +75,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = customModel.itemResult.items[indexPath.item]
-        let link = item.link
-        let productId = item.productId
-        let titleString = item.titleString
-        let vc = SearchDetailViewController(link: link, productId: productId, titleString: titleString)
+        let vc = SearchDetailViewController(item: item)
         self.removeBackButtonTitle()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -86,11 +83,11 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     func likeButtonAction(_ cell: SearchResultCollectionViewCell, _ item: Item) {
         ///UserDefaults
         cell.state == .selected ? UserDefaultManager.addLike(cell.item.productId) : UserDefaultManager.removeLike(cell.item.productId)
-        ///Realm
+        ///Realm + FileManager
         cell.state == .selected ? customModel.addBasketAction(item) : customModel.deleteBasketAction(item)
-        ///FileManager
-        cell.state == .selected ? customModel.addImageAction(item) : customModel.deleteImageAction(item)
     }
+    
+    func deleteButtonAction(_ productId: String) { }
 }
 
 //MARK: - UICollectionViewDataSourcePrefetching

@@ -31,20 +31,19 @@ extension BasketViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let item = customModel.itemResult.items[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
-//        cell.configureCell(item: item)
-//        cell.highlightText(text: text)
+        let basket = customModel.result[indexPath.row]
+        let identifier = SearchResultCollectionViewCell.identifier
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? SearchResultCollectionViewCell
+        guard let cell else { return UICollectionViewCell() }
+        
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteButtonClicked), for: .touchUpInside)
+        cell.configureCell(basket: basket, image: customModel.loadImage(fileName: basket.productId))
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let item = customModel.itemResult.items[indexPath.item]
-//        let link = item.link
-//        let productId = item.productId
-//        let titleString = item.titleString
-//        let vc = SearchDetailViewController(link: link, productId: productId, titleString: titleString)
-//        self.removeBackButtonTitle()
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
+    @objc func deleteButtonClicked(_ sender: UIButton) {
+        customModel.deleteBasketAction(sender.tag)
+        customView.searchResultCollectionView.reloadData()
+    }
 }
